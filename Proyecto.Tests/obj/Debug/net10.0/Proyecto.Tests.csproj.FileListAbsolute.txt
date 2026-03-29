@@ -186,3 +186,4 @@ C:\Users\g_mon\source\repos\tavihno\SOFT-740-GustavoMontero-Proyecto\Proyecto.Te
 C:\Users\g_mon\source\repos\tavihno\SOFT-740-GustavoMontero-Proyecto\Proyecto.Tests\bin\Debug\net10.0\runtimes\linux\native\selenium-manager
 C:\Users\g_mon\source\repos\tavihno\SOFT-740-GustavoMontero-Proyecto\Proyecto.Tests\bin\Debug\net10.0\runtimes\osx\native\selenium-manager
 C:\Users\g_mon\source\repos\tavihno\SOFT-740-GustavoMontero-Proyecto\Proyecto.Tests\bin\Debug\net10.0\runtimes\win\native\selenium-manager.exe
+C:\Users\g_mon\source\repos\tavihno\SOFT-740-GustavoMontero-Proyecto\Proyecto.Tests\obj\Debug\net10.0\Proyecto.Tests.sourcelink.json
