@@ -129,6 +129,32 @@ namespace Proyecto.Tests.Test.API
             Assert.That(put.category, Is.EqualTo("Vehiculo"));
             Assert.That(put.image, Is.EqualTo("prueba"));
         }
+        [Test]
+        public async Task PruebaDelete()
+        {
+
+
+            var client = CreateClient();
+            var request = CreateRequest("/products/9", Method.Delete);
+
+            var response = await client.ExecuteAsync(request);
+
+            Assert.That(response.StatusCode, Is.EqualTo(System.Net.HttpStatusCode.OK));
+            // Deserializar el JSON a tu clase
+            var Productdelete = JsonSerializer.Deserialize<GetDto>(
+                response.Content!,
+                new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+
+            // Validaciones con Assert.That
+
+            Assert.That(Productdelete.id, Is.EqualTo(9));
+            Assert.That(Productdelete.title, Does.Contain("WD 2TB Elements"));
+            Assert.That(Productdelete.price, Is.EqualTo(64));
+            Assert.That(Productdelete.category, Is.EqualTo("electronics"));
+            Assert.That(Productdelete.rating.rate, Is.EqualTo(3.3).Within(0.01));
+            Assert.That(Productdelete.rating.count, Is.GreaterThan(200));
+
+        }
 
     }
 
