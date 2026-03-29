@@ -1,0 +1,40 @@
+﻿using System;
+using RestSharp;
+using System.Net;
+using System.Text.Json;
+
+
+namespace Proyecto.Tests.Test.API
+{
+    public class ApiTest
+    {
+        private const string BaseUrl = "https://jsonplaceholder.typicode.com";
+
+        private static RestClient CreateClient() => new(BaseUrl);
+
+        private static RestRequest CreateRequest(string resource, Method method)
+        {
+            var request = new RestRequest(resource, method);
+            request.AddHeader("Content-type", "application/json; charset=UTF-8");
+            return request;
+        }
+
+        [Test]
+        public async Task PruebaGET()
+        {
+            var client = CreateClient();
+            var request = CreateRequest("/posts/1", Method.Get);
+
+            var response = await client.ExecuteAsync(request);
+
+            Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.OK), response.Content);
+
+            Assert.That(response.userId, Is.EqualTo(1));
+            Assert.That(response.id, Is.EqualTo(1));
+            Assert.That(response.title, Does.Contain("repellat provident"));
+            Assert.That(response.body, Does.StartWith("quia et suscipit"));
+            Assert.That(response.body, Does.Contain("reprehenderit molestiae"));
+
+        }
+    }
+}
