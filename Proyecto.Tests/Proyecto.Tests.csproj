@@ -28,13 +28,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TestData\" />
-    <Folder Include="Pages\" />
     <Folder Include="Test\BDD\" />
-    <Folder Include="Test\WEB\" />
-    <Folder Include="Utilities\Configuración\" />
     <Folder Include="Utilities\DriverFactory\" />
-    <Folder Include="Utilities\Helpers\" />
   </ItemGroup>
 
 </Project>

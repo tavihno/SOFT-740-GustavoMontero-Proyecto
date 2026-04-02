@@ -1,0 +1,23 @@
+[
+  {
+    "email": "standard_user",
+    "password": "secret_sauce",
+    "isValid": true
+  },
+  {
+    "email": "visual_user",
+    "password": "secret_sauce",
+    "isValid": true
+  },
+  {
+    "email": "locked_out_user",
+    "password": "secret_sauce",
+    "isValid": false
+  },
+  {
+    "email": "Tavo",
+    "password": "1234",
+    "isValid": false
+  }
+]
+
