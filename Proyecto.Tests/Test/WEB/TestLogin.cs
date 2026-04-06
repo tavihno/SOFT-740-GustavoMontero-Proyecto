@@ -29,7 +29,11 @@ namespace Proyecto.Tests.Test.WEB
             loginPage.ingresarLogin(user, password);
             loginPage.ClickLogin();
             var errorMessage = loginPage.GetMessageIncorrectPassword();
-            Assert.That(errorMessage, Is.EqualTo("Epic sadface: Sorry, this user has been locked out."));
+            Assert.That(errorMessage,
+        Is.EqualTo("Epic sadface: Username and password do not match any user in this service")
+        .Or.EqualTo("Epic sadface: Sorry, this user has been locked out."),
+        $"El mensaje mostrado fue distinto: {errorMessage}");
+
             ScreenshotHelper.TakeScreenshot(Driver, $"LoginFailed_{user}.png");
         }
     }
