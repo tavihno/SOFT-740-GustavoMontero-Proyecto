@@ -17,9 +17,14 @@ namespace Proyecto.Tests.Pages
         private IWebElement Zipcode => _driver.FindElement(By.Id("postal-code"));
         private IWebElement btncontinue => _driver.FindElement(By.Id("continue"));
         private IWebElement btnFinish => _driver.FindElement(By.Id("finish"));
-         private IWebElement msgsuccess => _driver.FindElement(By.CssSelector("h2.complete-header"));
+        private IWebElement msgsuccess => _driver.FindElement(By.CssSelector("h2.complete-header"));
 
         private IWebElement btnBackHome => _driver.FindElement(By.Id("back-to-products"));
+
+
+        private IWebElement MSGERROR => _driver.FindElement(By.CssSelector("h3[data-test='error']"));
+
+
 
 
         public void FillCheckoutInformation(string firstName, string lastName, string zipCode)
@@ -45,7 +50,11 @@ namespace Proyecto.Tests.Pages
             btnBackHome.Click();
 
         }
+        public string GetErrorMessage()
+        {
+            return MSGERROR.Text;
 
 
         }
+    }
 }

@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[3.11.0, )"
             },
+            "Gherkin": {
+              "target": "Package",
+              "version": "[36.0.0, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[18.3.0, )"
@@ -71,13 +75,25 @@
               "target": "Package",
               "version": "[5.1.0, )"
             },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.4, )"
+            },
             "Reqnroll": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[3.2.0, )"
+            },
+            "Reqnroll.NUnit": {
+              "target": "Package",
+              "version": "[3.2.0, )"
+            },
+            "Reqnroll.SpecFlowCompatibility": {
+              "target": "Package",
+              "version": "[3.2.0, )"
             },
             "Reqnroll.Tools.MsBuild.Generation": {
               "target": "Package",
-              "version": "[3.2.1, )"
+              "version": "[3.2.0, )"
             },
             "RestSharp": {
               "target": "Package",
@@ -94,6 +110,14 @@
             "Selenium.WebDriver.ChromeDriver": {
               "target": "Package",
               "version": "[141.0.7390.5400, )"
+            },
+            "SeleniumExtras.WaitHelpers": {
+              "target": "Package",
+              "version": "[1.0.2, )"
+            },
+            "SpecFlow": {
+              "target": "Package",
+              "version": "[3.9.74, )"
             },
             "coverlet.collector": {
               "target": "Package",
