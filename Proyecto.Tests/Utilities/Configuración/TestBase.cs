@@ -1,39 +1,45 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using Proyecto.Tests.Reporting;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Proyecto.Tests.Utilities.Configuración
 {
-    public class TestBase
-    {
-        protected IWebDriver Driver;
-
-        [SetUp]
-        public void Setup()
+ 
+        public abstract class TestBase : ReportedTestBase
         {
-            var options = new ChromeOptions();
-            options.AddArgument("--start-maximized");
-            options.AddArgument("--disable-notifications");
-            options.AddArgument("--disable-infobars");
-            //options.AddArgument("--headless=new");
-            options.AddArgument("--window-size=1920,1080");
-            Driver = new ChromeDriver(options);
+            protected IWebDriver Driver;
 
-            // Configurar tiempo de espera implícito de 10 segundos
-            Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
-            Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
-        }
-
-        [TearDown]
-        public void TearDown()
-        {
-            if (Driver != null)
+            [SetUp]
+            public void SetupDriver()
             {
-                Driver.Quit();
-                Driver.Dispose();
+                var options = new ChromeOptions();
+                options.AddArgument("--start-maximized");
+                options.AddArgument("--disable-notifications");
+                options.AddArgument("--disable-infobars");
+                options.AddArgument("--window-size=1920,1080");
+                options.AddArgument("--headless=new");
+                Driver = new ChromeDriver(options);
+
+                Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
+                Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
+
+                // Log inicial en el reporte
+                LogInfo("Driver inicializado y página cargada.");
+            }
+
+            [TearDown]
+            public void TearDownDriver()
+            {
+                if (Driver != null)
+                {
+                    Driver.Quit();
+                    Driver.Dispose();
+                    LogInfo("Driver cerrado correctamente.");
+                }
             }
         }
+
     }
-}

@@ -1,13 +1,14 @@
-﻿using System;
+﻿using NUnit.Framework;
+using proyecto.Tests.Test.API.Dtos;
+using Proyecto.Tests.Reporting;
 using RestSharp;
+using System;
 using System.Net;
 using System.Text.Json;
-using NUnit.Framework;
-using proyecto.Tests.Test.API.Dtos;
 
 namespace Proyecto.Tests.Test.API
 {
-    public class ApiTest
+    public class ApiTest : ReportedTestBase
     {
         private const string BaseUrl = "https://fakestoreapi.com";
 
@@ -22,6 +23,7 @@ namespace Proyecto.Tests.Test.API
         [Test]
         public async Task PruebaGET()
         {
+           
             var client = CreateClient();
             var request = CreateRequest("/products/9", Method.Get);
 
