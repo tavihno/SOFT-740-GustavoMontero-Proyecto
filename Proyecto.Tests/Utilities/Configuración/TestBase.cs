@@ -23,8 +23,6 @@ namespace Proyecto.Tests.Utilities.Configuración
                 options.AddArgument("--headless=new");
                 Driver = new ChromeDriver(options);
 
-
-
                 Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
                 Driver.Navigate().GoToUrl("https://www.saucedemo.com/");
 
