@@ -24,7 +24,14 @@ namespace Proyecto.Tests.Pages
         private IWebElement btnBackHome => _driver.FindElement(By.Id("back-to-products"));
 
 
-        
+        private IWebElement msgsuccess => _driver.FindElement(By.ClassName("complete-header"));
+
+       
+
+
+
+
+
 
 
 
@@ -41,16 +48,12 @@ namespace Proyecto.Tests.Pages
         }
         public void ClickFinish()
         {
+
             btnFinish.Click();
         }
         public string GetSuccessMessage()
         {
 
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
-
-            // Espera hasta que el elemento sea visible
-            var msgsuccess = wait.Until(ExpectedConditions.ElementIsVisible((By.CssSelector("h2.complete-header"))));
-            
             return msgsuccess.Text;
         }
         public void ClickBackHome()
