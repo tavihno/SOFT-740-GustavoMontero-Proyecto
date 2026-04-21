@@ -1,4 +1,6 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
+using SeleniumExtras.WaitHelpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -22,7 +24,7 @@ namespace Proyecto.Tests.Pages
         private IWebElement btnBackHome => _driver.FindElement(By.Id("back-to-products"));
 
 
-        private IWebElement MSGERROR => _driver.FindElement(By.CssSelector("h3[data-test='error']"));
+        
 
 
 
@@ -52,6 +54,11 @@ namespace Proyecto.Tests.Pages
         }
         public string GetErrorMessage()
         {
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+
+            // Espera hasta que el elemento sea visible
+            var MSGERROR = wait.Until(ExpectedConditions.ElementIsVisible((By.CssSelector("h3[data-test='error']"))));
             return MSGERROR.Text;
 
 
