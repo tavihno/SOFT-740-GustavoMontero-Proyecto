@@ -19,7 +19,7 @@ namespace Proyecto.Tests.Pages
         private IWebElement Zipcode => _driver.FindElement(By.Id("postal-code"));
         private IWebElement btncontinue => _driver.FindElement(By.Id("continue"));
         private IWebElement btnFinish => _driver.FindElement(By.Id("finish"));
-        private IWebElement msgsuccess => _driver.FindElement(By.CssSelector("h2.complete-header"));
+       
 
         private IWebElement btnBackHome => _driver.FindElement(By.Id("back-to-products"));
 
@@ -45,6 +45,12 @@ namespace Proyecto.Tests.Pages
         }
         public string GetSuccessMessage()
         {
+
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
+
+            // Espera hasta que el elemento sea visible
+            var msgsuccess = wait.Until(ExpectedConditions.ElementIsVisible((By.CssSelector("h2.complete-header"))));
+            
             return msgsuccess.Text;
         }
         public void ClickBackHome()
@@ -55,7 +61,7 @@ namespace Proyecto.Tests.Pages
         public string GetErrorMessage()
         {
 
-            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(20));
 
             // Espera hasta que el elemento sea visible
             var MSGERROR = wait.Until(ExpectedConditions.ElementIsVisible((By.CssSelector("h3[data-test='error']"))));
