@@ -14,8 +14,16 @@ namespace Proyecto.Tests.Hooks
         [BeforeScenario("@Web")]
         public void BeforeScenario()
         {
-            IWebDriver driver = new ChromeDriver();
-            driver.Manage().Window.Maximize();
+
+            var options = new ChromeOptions();
+            options.AddArgument("--start-maximized");
+            options.AddArgument("--disable-notifications");
+            options.AddArgument("--disable-infobars");
+            options.AddArgument("--window-size=1920,1080");
+            options.AddArgument("--headless=new");
+            IWebDriver driver = new ChromeDriver(options);
+            
+            
             _scenarioContext["Driver"] = driver; // Compartimos el driver vía ScenarioContext
         }
 
