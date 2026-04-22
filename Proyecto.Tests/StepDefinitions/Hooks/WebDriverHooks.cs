@@ -21,6 +21,7 @@ namespace Proyecto.Tests.Hooks
             options.AddArgument("--disable-infobars");
             options.AddArgument("--window-size=1920,1080");
             options.AddArgument("--headless=new");
+            options.AddArgument("--incognito");
             IWebDriver driver = new ChromeDriver(options);
             
             

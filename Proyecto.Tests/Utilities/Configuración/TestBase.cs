@@ -21,6 +21,7 @@ namespace Proyecto.Tests.Utilities.Configuración
                 options.AddArgument("--disable-infobars");
                 options.AddArgument("--window-size=1920,1080");
                 options.AddArgument("--headless=new");
+                options.AddArgument("--incognito");
                 Driver = new ChromeDriver(options);
 
                 Driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);
